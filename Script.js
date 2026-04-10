@@ -11,13 +11,15 @@ const player = {
     maxMana: 20,
     ataque: 10,
     magia: 10,
-    nivel: 1
+    ouro: 10,
+    nivel: 1,
 };
 
 const LIMITES = {
     MAX_LEVEL: 100,
     MAX_VIDA: 5000,
-    MAX_MANA: 100
+    MAX_MANA: 100,
+    MAX_OURO: 50397,
 };
 
 const magias = {
@@ -30,14 +32,14 @@ const magias = {
 const cidades = {
     Frostvale: {
         historia: "Frostvale – A Cidade do Gelo, com ventos cortantes e montanhas geladas.",
-        monstros: [{nome:"Lobo de Gelo", vida:90}, {nome:"Golem Congelado", vida:135}],
-        chefe: {nome:"Dragão Branco", vida:250},
+        monstros: [{nome:"Lobo de gelo(Filho da neve)", vida:90, ouro: 40}, {nome:"Golem Congelado(O defensor)", vida:135}],
+        chefe: {nome:"Dragão Branco(O pai)", vida:250},
         historiaPosChefe: "❄️ Após o rugido final do Dragão Branco, o frio intenso de Frostvale parece ceder. O sol brilha pela primeira vez em anos, revelando uma passagem secreta sob o gelo. Você encontrou um antigo mapa que marca a localização do próximo tirano. A cidade está segura."
     },
     Oakheart: {
         historia: "Oakheart – A Cidade das Florestas, árvores antigas e seres místicos.",
-        monstros: [{nome:"Goblin Verde", vida:75}, {nome:"Ent da Floresta", vida:150}],
-        chefe: {nome:"Guardião Ancestral", vida:300},
+        monstros: [{nome:"Goblin Verde", vida:75, ouro: 30}, {nome:"Ent da Floresta", vida:150, ouro: 55}],
+        chefe: {nome:"Guardião Ancestral", vida:300, ouro: 95},
         historiaPosChefe: "🌳 A madeira volta a ser verdejante. O Guardião Ancestral se desfaz em sementes de luz que fertilizam toda a floresta. Uma fada surge e te oferece uma Essência de Mana pura."
     },
     Emberforge: {
@@ -67,6 +69,44 @@ const cidades = {
     Aethelburg: {
         historia: "Aethelburg – A Capital, lar da Grande Biblioteca e do Conselho.",
         monstros: [], chefe: null, historiaPosChefe: null
+     },
+    MysticalMall : {
+        historia: " – Um shopping no meio da floresta, um local seguro que vende coisas.",
+        ]
+  },
+
+    lojas: [
+        {
+            nome: "🧪 Loja de Poções",
+            itens: [
+                {nome: "Poção de Cura", preco: 50, efeito: () => player.vida = Math.min(player.maxVida, player.vida + 30)},
+                {nome: "Poção de Mana", preco: 40, efeito: () => player.mana = Math.min(player.maxMana, player.mana + 20)}
+            ]
+        },
+        {
+            nome: "⚔️ Ferreiro",
+            itens: [
+                {nome: "Espada de Ferro", preco: 120, efeito: () => player.ataque += 5},
+                {nome: "Armadura Leve", preco: 150, efeito: () => player.maxVida += 20}
+            ]
+        },
+        {
+            nome: "✨ Mago Arcano",
+            itens: [
+                {nome: "Cristal de Mana", preco: 200, efeito: () => player.maxMana += 10},
+                {nome: "Pergaminho Sombrio", preco: 180, efeito: () => player.magia += 5}
+            ]
+        }
+    ],
+
+    evento: {
+        nome: "🕵️ Ladrão do Mercado",
+        vida: 150
+    },
+
+    historiaPosChefe: "🎉 O ladrão foi derrotado! Os comerciantes confiam em você e os preços diminuíram."
+},
+    },
     }
 };
 
