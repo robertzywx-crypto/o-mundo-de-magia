@@ -9,13 +9,13 @@ const player = {
     maxVida: 40,
     mana: 20,
     maxMana: 20,
-    ataque: 7,
+    ataque: 10,
     magia: 10,
     nivel: 1
 };
 
 const LIMITES = {
-    MAX_LEVEL: 75,
+    MAX_LEVEL: 100,
     MAX_VIDA: 5000,
     MAX_MANA: 100
 };
@@ -55,13 +55,13 @@ const cidades = {
         historia: "Shadowfen – O Pântano das Sombras, o covil final onde o mal supremo aguarda.",
         monstros: [{nome:"Sapo Gigante", vida:90}, {nome:"Serpente Sombria", vida:150}],
         chefe: {nome:"Lorde das Trevas", vida: 1000}, // VIDA AJUSTADA PARA 1000
-        historiaPosChefe: `👑 <b>VOCÊ É O CAMPEÃO!</b> 👑<br><br>O 'Lorde das Trevas' se desintegra em poeira cósmica, e o silêncio se instala, profundo e eterno. A escuridão que cobria o Canadá Medieval é finalmente expulsa. Você, Roberto, o Espadachim, completou o impossível. A luz retorna ao mundo por sua causa. Seu nome será cantado em baladas por séculos! O MUNDO DE ROBERTO ESTÁ SALVO!`
+        historiaPosChefe: `👑 <b>VOCÊ É O CAMPEÃO!</b> 👑<br><br>O 'Lorde das Trevas' se desintegra em poeira cósmica, e o silêncio se instala, profundo e eterno. A escuridão que cobria o Canadá Medieval é finalmente expulsa. Você, Isaac, o Espadachim, completou o impossível. A luz retorna ao mundo por sua causa. Seu nome será cantado em baladas por séculos! O MUNDO DE ISAAC ESTÁ SALVO!`
     },
     "O Vazio": {
         historia: "O Vazio – O centro da criação, onde a realidade se dobra. O Criador espera.",
         monstros: [{nome:"Gárgula de Realidade", vida:200}, {nome:"Ecos do Tempo", vida:300}],
         chefe: {nome:"O Criador", vida:800},
-        historiaPosChefe: "✨ Com a derrota d'O Criador, a realidade estilhaçada se remonta. Você restaurou o equilíbrio fundamental do universo. Parabéns, Roberto! Você venceu o jogo."
+        historiaPosChefe: "✨ Com a derrota d'O Criador, a realidade estilhaçada se remonta. Você restaurou o equilíbrio fundamental do universo. Parabéns, ISAAC! Você venceu o jogo."
     },
     Aethelburg: {
         historia: "Aethelburg – A Capital, lar da Grande Biblioteca e do Conselho.",
@@ -132,7 +132,7 @@ function inimigoAtaca() {
     player.vida -= dano;
     log(`💥 ${inimigoAtual.nome} atacou e causou ${dano} de dano!`);
     if (player.vida <= 0) {
-        log("💀 O mundo escureceu para Isaac... Carregue seu save.");
+        log("💀 ISAAC MORREU, CLIQUE NO MAPA E VÁ PARA AETHELBURG DESCANSAR...");
         setBotoes(false);
     }
     mostraStatus();
