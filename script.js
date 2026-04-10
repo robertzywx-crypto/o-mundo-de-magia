@@ -23,7 +23,8 @@ const LIMITES = {
 const magias = {
     "Golpe Flamejante": 25,
     "Corte Congelante": 15,
-    "Rajada Sombria": 50
+    "Rajada Sombria": 50,
+    "Espinhos de gelo": 30,
 };
 
 const cidades = {
