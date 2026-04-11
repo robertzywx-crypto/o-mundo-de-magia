@@ -72,7 +72,7 @@ const cidades = {
      },
     MysticalMall : {
         historia: " – Um shopping no meio da floresta, um local seguro que vende coisas.",
-        ]
+        
   },
 
     lojas: [
@@ -105,7 +105,6 @@ const cidades = {
     },
 
     historiaPosChefe: "🎉 O ladrão foi derrotado! Os comerciantes confiam em você e os preços diminuíram."
-},
     },
 
 let inimigoAtual = null;
