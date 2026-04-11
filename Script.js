@@ -107,8 +107,6 @@ const cidades = {
     historiaPosChefe: "🎉 O ladrão foi derrotado! Os comerciantes confiam em você e os preços diminuíram."
 },
     },
-    }
-};
 
 let inimigoAtual = null;
 let filaMonstros = [];
