@@ -32,13 +32,13 @@ const cidades = {
         historia: "Frostvale – A Cidade do Gelo, com ventos cortantes e montanhas geladas.",
         monstros: [{nome:"Lobo de Gelo", vida:90}, {nome:"Golem Congelado", vida:135}],
         chefe: {nome:"Dragão Branco", vida:250},
-        historiaPosChefe: "❄️ Após o rugido final do Dragão Branco, o frio intenso de Frostvale parece ceder. O sol brilha pela primeira vez em anos, revelando uma passagem secreta sob o gelo. Você encontrou um antigo mapa que marca a localização do próximo tirano. A cidade está segura."
+        historiaPosChefe: "❄️ Após o rugido final do Dragão Branco, o frio intenso de Frostvale parece ceder. O sol brilha pela primeira vez em anos, revelando uma passagem secreta sob o gelo. Você absorve o poder ancestral de Frostvale!"
     },
     Oakheart: {
         historia: "Oakheart – A Cidade das Florestas, árvores antigas e seres místicos.",
         monstros: [{nome:"Goblin Verde", vida:75}, {nome:"Ent da Floresta", vida:150}],
         chefe: {nome:"Guardião Ancestral", vida:300},
-        historiaPosChefe: "🌳 A madeira volta a ser verdejante. O Guardião Ancestral se desfaz em sementes de luz que fertilizam toda a floresta. Uma fada surge e te oferece uma Essência de Mana pura."
+        historiaPosChefe: "🌳 A madeira volta a ser verdejante. O Guardião Ancestral se desfaz em sementes de luz que fertilizam toda a floresta. Uma fada surge e te oferece uma Essência de Mana pura. Você sente o poder da natureza fluindo por suas veias!"
     },
     Emberforge: {
         historia: "Emberforge – A Cidade do Fogo, vulcões e magma por todos os lados.",
@@ -56,7 +56,7 @@ const cidades = {
         historia: "Shadowfen – O Pântano das Sombras, o covil final onde o mal supremo aguarda.",
         monstros: [{nome:"Sapo Gigante", vida:90}, {nome:"Serpente Sombria", vida:150}],
         chefe: {nome:"Lorde das Trevas", vida: 1000}, // VIDA AJUSTADA PARA 1000
-        historiaPosChefe: `👑 <b>VOCÊ É O CAMPEÃO!</b> 👑<br><br>O 'Lorde das Trevas' se desintegra em poeira cósmica, e o silêncio se instala, profundo e eterno. A escuridão que cobria o Canadá Medieval é finalmente expulsa. Você, Isaac, o Espadachim, completou o impossível. A luz retorna ao mundo por sua causa. Seu nome será cantado em baladas por séculos! O MUNDO DE ISAAC ESTÁ SALVO!`
+        historiaPosChefe: `👑 <b>VOCÊ É O CAMPEÃO!</b> 👑<br><br>O 'Lorde das Trevas' se desintegra em poeira cósmica, e o silêncio se instala, profundo e eterno. A escuridão que cobria o Califado foi finalmente erradicada. Você restaurou a esperança ao mundo!`
     },
     "O Vazio": {
         historia: "O Vazio – O centro da criação, onde a realidade se dobra. O Criador espera.",
@@ -168,9 +168,11 @@ function usarMagia() {
 function defender() {
     if (emHistoria || !inimigoAtual) return;
     log("🛡️ Isaac se defende!");
+    let dano = (inimigoAtual.nome === "Lorde das Trevas") ? 15 : (Math.floor(Math.random() * 8) + 3);
     let reducao = (inimigoAtual.nome === "Lorde das Trevas") ? 10 : 4;
-    player.vida -= (1); // Dano mínimo por defender
-    log(`🛡️ Dano bloqueado! Você recebeu apenas 1.`);
+    let danoReduzido = Math.max(1, dano - reducao);
+    player.vida -= danoReduzido;
+    log(`🛡️ Dano bloqueado! Você recebeu apenas ${danoReduzido} de dano (reduzido de ${dano}).`);
     mostraStatus();
 }
 
